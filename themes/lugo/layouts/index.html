@@ -1,0 +1,191 @@
+{{ define "title" }}{{ .Site.Title }}{{ end }} {{ define "main" }}
+
+<!-- Section Navigation -->
+<nav class="section-nav">
+  <div class="nav-indicator">
+    <button class="nav-btn active" data-section="hero">Profile</button>
+    <button class="nav-btn" data-section="blog">Blog</button>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section" id="hero">
+  <div class="hero-container">
+    <!-- Main Content Centered -->
+    <div class="main-content">
+      <div class="profile-avatar-wrapper">
+        <img
+          src="https://avatars.githubusercontent.com/u/84001162?v=4"
+          alt="Aman Anwar"
+          class="profile-avatar"
+        />
+      </div>
+      <h1 class="profile-name">Aman Anwar</h1>
+      <p class="profile-description">Welcome to my place on the web! I'm a CS undergrad at Virginia Tech. Scroll to read my blog!</p>
+    </div>
+
+    <!-- Widgets Sidebar -->
+    <div class="widgets-sidebar">
+      <!-- Social Links Grid -->
+      <div class="social-grid">
+        <a href="https://www.linkedin.com/in/aman-anwar-" target="_blank" class="social-widget">
+          <i class="fab fa-linkedin"></i>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://www.youtube.com/@amananwar7421" target="_blank" class="social-widget">
+          <i class="fab fa-youtube"></i>
+          <span>YouTube</span>
+        </a>
+        <a href="https://devpost.com/aman-anwar18oct" target="_blank" class="social-widget">
+          <i class="fas fa-trophy"></i>
+          <span>Devpost</span>
+        </a>
+        <a href="https://github.com/notcolumbus" target="_blank" class="social-widget">
+          <i class="fab fa-github"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+
+      <!-- Bottom Widgets -->
+      <div class="bottom-widgets">
+        <div class="bottom-widgets-row">
+          <!-- Resume Widget -->
+          <a href="/resume.pdf" target="_blank" class="widget-link-main">
+            <i class="fas fa-file-alt"></i>
+            <span class="widget-text">Resume</span>
+          </a>
+
+          <!-- Projects Widget -->
+          <a href="/projects" class="widget-link-main">
+            <i class="fas fa-code"></i>
+            <span class="widget-text">Projects</span>
+          </a>
+
+          <!-- Contact Widget -->
+          <a href="mailto:aman06@vt.edu" class="widget-link-main" target="_blank">
+            <i class="fas fa-envelope"></i>
+            <span class="widget-text">Email</span>
+          </a>
+        </div>
+
+        <!-- Currently Working Widget -->
+        <div class="currently-working-widget">
+          <div class="work-header">
+            <span class="work-title">Currently Working At</span>
+          </div>
+          <div class="work-main">
+            <div class="company-logo">
+              <img src="https://8vjfu80j4c.ufs.sh/f/WxwgvH28Klu04FEBvZXbfq5lmzrE31SNZk9jytKQhGR0uVdC" alt="Lumiq" class="logo-img">
+            </div>
+            <div class="work-content">
+              <span class="company">Lumiq</span>
+              <span class="role">Software Engineer Intern</span>
+              <p class="work-description">Churn prediction on credit card users.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Blog Section - Full Page -->
+{{ $posts := where .Site.RegularPages "Type" "blog" }} {{ if $posts }}
+<section class="blog-section-full" id="blog">
+  <div class="blog-container">
+    <div class="blog-header">
+      <h2 class="blog-title">Recent Thoughts</h2>
+      <p class="blog-subtitle">Insights, discoveries, and reflections from my journey</p>
+    </div>
+
+    <div class="blog-grid-full">
+      {{ range $posts }}
+      <article class="blog-card-full">
+        <a href="{{ .Permalink }}" class="blog-card-link">
+          <div class="blog-card-bg" style="background-image: url('{{ .Params.thumbnail | default "/images/blog-default.jpg" }}');">
+            <div class="blog-card-overlay">
+              <div class="blog-card-content">
+                <div class="blog-card-tags">
+                  {{ range .Params.tags }}
+                  <span class="blog-tag">{{ . }}</span>
+                  {{ end }}
+                </div>
+                <h3 class="blog-card-title">{{ .Title }}</h3>
+                <p class="blog-card-excerpt">{{ .Summary | truncate 150 }}</p>
+                <div class="blog-card-footer">
+                  <span class="blog-date">{{ .Date.Format "January 2, 2006" }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<!-- JavaScript for section navigation -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Section navigation functionality
+  const navButtons = document.querySelectorAll('.nav-btn');
+  const sections = ['hero', 'blog'];
+  let currentSection = 0;
+  
+  function updateActiveNav() {
+    navButtons.forEach((btn, index) => {
+      btn.classList.toggle('active', index === currentSection);
+    });
+  }
+  
+  function scrollToSection(index) {
+    const targetSection = document.getElementById(sections[index]);
+    if (targetSection) {
+      targetSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+      
+      currentSection = index;
+      updateActiveNav();
+    }
+  }
+  
+  // Navigation button clicks
+  navButtons.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+      scrollToSection(index);
+    });
+  });
+  
+  // Intersection Observer for automatic nav updates
+  const observerOptions = {
+    threshold: 0.5,
+    rootMargin: '-50px 0px -50px 0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const sectionId = entry.target.id;
+        const sectionIndex = sections.indexOf(sectionId);
+        if (sectionIndex !== -1) {
+          currentSection = sectionIndex;
+          updateActiveNav();
+        }
+      }
+    });
+  }, observerOptions);
+  
+  // Observe all sections
+  sections.forEach(sectionId => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      observer.observe(section);
+    }
+  });
+});
+</script>
+{{ end }}

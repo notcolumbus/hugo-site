@@ -1,0 +1,43 @@
+- title: "Fit Finder"
+  description: "Vector search for outfit similarity using OpenCLIP and MongoDB Atlas."
+  icon: "fas fa-search"
+  color: "text-primary"
+  link: "https://devpost.com/software/fit-finder-10nxvg"
+  tags:
+    - "MongoDB"
+    - "AI"
+  award: "🏆 MongoDB Winner"
+  award_class: "text-warning"
+
+- title: "Mumbl"
+  description: "AI speech practice tool analyzing tone, energy, and confidence."
+  icon: "fas fa-microphone"
+  color: "text-success"
+  link: "https://devpost.com/software/mumbl"
+  tags:
+    - "AI/ML"
+    - "Python"
+  award: "HackViolet25"
+  award_class: "text-muted"
+
+- title: "Quetzl"
+  description: "Community service app with real-time social feed. Published on Play Store."
+  icon: "fas fa-mobile-alt"
+  color: "text-info"
+  link: "https://devpost.com/software/quetzl"
+  tags:
+    - "Flutter"
+    - "Firebase"
+  award: "Published"
+  award_class: "text-success"
+
+- title: "Spatial Audio AI"
+  description: "Novel spatial audio synthesis using Gemini 2.5 AI models."
+  icon: "fas fa-brain"
+  color: "text-danger"
+  link: "https://ideeaslab.com/members/"
+  tags:
+    - "Gemini 2.5"
+    - "Python"
+  award: "In Development"
+  award_class: "text-primary"
