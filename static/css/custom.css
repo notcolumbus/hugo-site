@@ -2,11 +2,12 @@
 
 /* Default gradient background for all blog cards */
 .blog-card-bg {
-  background: linear-gradient(135deg, 
-    #667eea 0%, 
-    #764ba2 25%, 
-    #8E2DE2 50%, 
-    #4A00E0 75%, 
+  background: linear-gradient(
+    135deg,
+    #667eea 0%,
+    #764ba2 25%,
+    #8e2de2 50%,
+    #4a00e0 75%,
     #667eea 100%
   );
   background-size: 200% 200%;
@@ -15,9 +16,15 @@
 
 /* Gradient animation */
 @keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* Add some hover effects */

@@ -2,3 +2,8 @@ baseURL = 'https://amans.place/'
 languageCode = 'en-us'
 title = 'Amans Place'
 theme = 'lugo'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
