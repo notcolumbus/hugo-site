@@ -59,7 +59,7 @@ jobs:
           hugo \
             --gc \
             --minify \
-            --baseURL "https://notcolumbus.github.io/hugo-site/"
+            --baseURL "https://amans.place/"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

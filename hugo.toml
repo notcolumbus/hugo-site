@@ -1,4 +1,4 @@
-baseURL = 'https://notcolumbus.github.io/hugo-site/'
+baseURL = 'https://amans.place/'
 languageCode = 'en-us'
 title = 'Amans Place'
 theme = 'lugo'
