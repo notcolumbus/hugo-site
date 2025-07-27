@@ -1,7 +1,13 @@
 {{ define "title" }}{{ .Site.Title }}{{ end }} {{ define "main" }}
 
 <!-- Section Navigation -->
-<nav class="section-nav">
+<nav      <article class="blog-card-full">
+        <a href="{{ .Permalink }}" class="blog-card-link">
+          {{ if .Params.thumbnail }}
+          <div class="blog-card-bg" style="background-image: url('{{ .Params.thumbnail }}');">
+          {{ else }}
+          <div class="blog-card-bg">
+          {{ end }}ass="section-nav">
   <div class="nav-indicator">
     <button class="nav-btn active" data-section="hero">Profile</button>
     <button class="nav-btn" data-section="blog">Blog</button>
@@ -103,7 +109,11 @@
       {{ range $posts }}
       <article class="blog-card-full">
         <a href="{{ .Permalink }}" class="blog-card-link">
-          <div class="blog-card-bg" style="background-image: url('{{ .Params.thumbnail | default "/images/blog-default.jpg" }}');">
+          {{ if .Params.thumbnail }}
+          <div class="blog-card-bg" style="background-image: url('{{ .Params.thumbnail }}');">
+          {{ else }}
+          <div class="blog-card-bg">
+          {{ end }}
             <div class="blog-card-overlay">
               <div class="blog-card-content">
                 <div class="blog-card-tags">

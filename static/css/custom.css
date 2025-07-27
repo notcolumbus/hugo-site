@@ -1,0 +1,65 @@
+/* Custom blog card gradient for posts without images */
+
+/* Default gradient background for all blog cards */
+.blog-card-bg {
+  background: linear-gradient(135deg, 
+    #667eea 0%, 
+    #764ba2 25%, 
+    #8E2DE2 50%, 
+    #4A00E0 75%, 
+    #667eea 100%
+  );
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
+
+/* Gradient animation */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Add some hover effects */
+.blog-card-full:hover .blog-card-bg {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+/* Alternative gradient options - uncomment to use different colors */
+
+/* Sunset gradient */
+/* 
+.blog-card-bg {
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fad0c4 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
+*/
+
+/* Ocean gradient */
+/* 
+.blog-card-bg {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
+*/
+
+/* Warm gradient */
+/* 
+.blog-card-bg {
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
+*/
+
+/* Cool mint gradient */
+/* 
+.blog-card-bg {
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
+*/
