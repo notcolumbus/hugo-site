@@ -1445,3 +1445,29 @@ body {
     font-size: 1.25rem;
   }
 }
+
+/* Custom blog card gradient for posts without images */
+.blog-card-bg {
+  background: linear-gradient(135deg, 
+    #667eea 0%, 
+    #764ba2 25%, 
+    #8E2DE2 50%, 
+    #4A00E0 75%, 
+    #667eea 100%
+  ) !important;
+  background-size: 200% 200% !important;
+  animation: gradientShift 8s ease infinite;
+}
+
+/* Gradient animation */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Add some hover effects */
+.blog-card-full:hover .blog-card-bg {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
