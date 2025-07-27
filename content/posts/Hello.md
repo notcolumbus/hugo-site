@@ -1,5 +1,5 @@
 ---
-date: 2025-01-27T12:00:00Z
+date: "2025-07-28T00:10:59+05:30"
 draft: false
 title: "First post"
 type: "blog"
