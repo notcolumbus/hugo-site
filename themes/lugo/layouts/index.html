@@ -1,13 +1,7 @@
 {{ define "title" }}{{ .Site.Title }}{{ end }} {{ define "main" }}
 
 <!-- Section Navigation -->
-<nav      <article class="blog-card-full">
-        <a href="{{ .Permalink }}" class="blog-card-link">
-          {{ if .Params.thumbnail }}
-          <div class="blog-card-bg" style="background-image: url('{{ .Params.thumbnail }}');">
-          {{ else }}
-          <div class="blog-card-bg">
-          {{ end }}ass="section-nav">
+<nav class="section-nav">
   <div class="nav-indicator">
     <button class="nav-btn active" data-section="hero">Profile</button>
     <button class="nav-btn" data-section="blog">Blog</button>
